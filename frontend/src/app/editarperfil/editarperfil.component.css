@@ -1,0 +1,11 @@
+#largo {
+    width: 400px;
+    margin: auto;
+}
+
+#imagen64 {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+  }

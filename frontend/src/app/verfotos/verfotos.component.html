@@ -1,0 +1,61 @@
+<div class="containerFotos">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-5 col-sm-6 col-lg-4">
+                <div class="container shadow-lg p-3 mb-5 bg-body rounded">
+                    <figure class="figure">
+                        <img [src]="user_perfil" class="figure-img img-fluid rounded" alt="...">
+                        <figcaption class="figure-caption">{{usuario.userName | uppercase}}</figcaption>
+                        <small class="text-mude"> {{usuario.nombre | uppercase}} </small>
+                    </figure>
+                    <div class="row-sm my-button">
+                        <button type="button" class="btn btn-outline-primary btn-block" (click)="subir_foto()">
+                            <svg id="i-upload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                <path d="M9 22 C0 23 1 12 9 13 6 2 23 2 22 10 32 7 32 23 23 22 M11 18 L16 14 21 18 M16 14 L16 29" />
+                            </svg>
+                            Subir foto
+                        </button>
+                    </div>
+                    <br>
+                    <div class="row-sm my-button">
+                        <button type="button" class="btn btn-outline-primary btn-block" (click)="editar_album()">
+                            <svg id="i-compose" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                <path d="M27 15 L27 30 2 30 2 5 17 5 M30 6 L26 2 9 19 7 25 13 23 Z M22 6 L26 10 Z M9 19 L13 23 Z" />
+                            </svg>
+                            Editar album
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-7 col-sm-6 col-lg-8">
+                <div class="container shadow-lg p-3 mb-5 bg-body rounded">
+                    <mat-accordion>
+                        <mat-expansion-panel hideToggle *ngFor="let album of albumes" (opened)="panel_abre(album.idAlbum)">
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>
+                              {{album.nombre | uppercase}}
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                {{album.idAlbum}}
+                            </mat-panel-description>
+                          </mat-expansion-panel-header>
+                          <!--Body acordion-->
+                          <div class="container" *ngIf="fotoAlbum.length>0" >
+                            <div class="row row-cols-1 row-cols-md-3 g-4" >
+                                <div class="col" *ngFor="let foto_ of fotoAlbum">
+                                    <div class="card">
+                                    <img src="https://practica1-g19-imagenes.s3.us-east-2.amazonaws.com/{{foto_.pathFoto}}" class="card-img-top" [alt]="foto_.nombre">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="color:#000000"> {{foto_.nombre | uppercase}} </h5>                               
+                                    </div>
+                                    </div>
+                                </div>
+                              </div>
+                          </div>
+                        </mat-expansion-panel>
+                      </mat-accordion>    
+                </div>
+            </div>
+          </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="my-container center-h">
+    <div class="child shadow-lg p-3 mb-5 bg-body rounded">
+        <div class="container">
+            <h1 id="largo">Subir Foto</h1>
+            <hr>
+        </div>
+        <div class="input-group form-group">
+            <input  
+              id="inputUpload" type="file" (change)="handleUpload($event)">
+
+        
+          </div>
+
+          <div class="form-group" > 
+
+          <img src="{{this.imagen}}" id="imagen64" />
+          </div>
+
+        <div class="row animated fadeIn fast" *ngIf="!this.userService.estaLog() || this.selectFile==false">
+            <div class="col-md-12">
+              <div class="alert alert-info" role="alert">
+                {{this.mensaje}}
+              </div>
+            </div>
+        </div>
+
+        <div class="editContainer">
+            <div class="mb-3">
+                <input class="form-control" type="text" placeholder="Nombre de Imagen" aria-label="default input example" id="inputAlbum" #inAlbum>
+            </div>
+            <!--(click)="editar_album()"-->
+            
+        </div>
+        <div class="editContainer">
+            <div class="mb-3">
+                <label for="inputAlbum" class="form-label"><h4>Albúm</h4></label>
+                <select [(ngModel)]="opcionSeleccionado" (change)="capturar()" class="form-select" aria-label="Default select example">
+                    <option value=0>Seleccione un albúm</option>
+                    <option *ngFor="let album of this.albumes; index as i" [value]="album.idAlbum"> {{album.nombre}} </option>
+                </select>
+            </div>
+            <!--(click)="editar_album()"-->
+            <button type="button" class="btn btn-outline-primary btn-block" (click)="subirFoto(inAlbum.value)">
+                <svg id="i-upload" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M9 22 C0 23 1 12 9 13 6 2 23 2 22 10 32 7 32 23 23 22 M11 18 L16 14 21 18 M16 14 L16 29" />
+                </svg>
+                Subir foto
+            </button>
+        </div>
+    </div>
+</div>
+

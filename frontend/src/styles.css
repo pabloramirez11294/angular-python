@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.my-container {
+    background: #ffffff;
+    margin: 0 0 1rem;
+    height: auto;
+    display: flex;
+    /* align-items por defecto tiene el valor `stretch` */
+    align-items: start;
+    
+    padding-top: 2rem;
+}
+.center-h {
+    justify-content: center;    
+}
+.center-v {
+    align-items: center;
+  }
+.child {
+  background: #4accf3;
+  padding: .5rem;    
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
