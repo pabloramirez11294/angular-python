@@ -11,7 +11,7 @@ import base64
 import random
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://adminUser:passRDS$adminUser@db-mysql.csa30zxzsffq.us-east-2.rds.amazonaws.com/bdatos'
+app.config['SQLALCHEMY_DATABASE_URI'] = URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 CORS(app)
 
